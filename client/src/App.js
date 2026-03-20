@@ -1,6 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import './App.css';
+import WorkerOnboarding from './components/WorkerOnboarding';
+import ClaimSubmission from './components/ClaimSubmission';
+import AnalyticsDashboard from './components/AnalyticsDashboard';
+import DemoMode from './components/DemoMode';
+import WorkerProfileCards from './components/WorkerProfileCards';
 
 // Set base URL for API calls
 axios.defaults.baseURL = process.env.REACT_APP_API_URL || 'https://gigshield-backend-2y02.onrender.com';
@@ -9,11 +14,6 @@ axios.defaults.baseURL = process.env.REACT_APP_API_URL || 'https://gigshield-bac
 const api = axios.create({
   baseURL: process.env.REACT_APP_API_URL || 'https://gigshield-backend-2y02.onrender.com'
 });
-import WorkerOnboarding from './components/WorkerOnboarding';
-import ClaimSubmission from './components/ClaimSubmission';
-import AnalyticsDashboard from './components/AnalyticsDashboard';
-import DemoMode from './components/DemoMode';
-import WorkerProfileCards from './components/WorkerProfileCards';
 
 function App() {
   const [activeTab, setActiveTab] = useState('onboarding');
