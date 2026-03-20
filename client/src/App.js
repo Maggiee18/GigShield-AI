@@ -53,9 +53,9 @@ function App() {
   };
 
   useEffect(() => {
-    fetchAnalytics();
-    fetchWorkers();
-  }, []);
+  fetchAnalytics();
+  fetchWorkers();
+}, [fetchAnalytics, fetchWorkers]);
 
   // Handle worker creation
   const handleWorkerCreated = (worker) => {
