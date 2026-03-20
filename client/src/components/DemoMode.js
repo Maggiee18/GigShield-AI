@@ -1,6 +1,9 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 
+// Set base URL for API calls
+axios.defaults.baseURL = process.env.REACT_APP_API_URL || 'https://gigshield-backend-2y02.onrender.com';
+
 const DemoMode = ({ workers, onClaimSubmitted, onNotification }) => {
   const [loading, setLoading] = useState(false);
   const [selectedWorker, setSelectedWorker] = useState('');

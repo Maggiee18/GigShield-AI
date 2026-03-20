@@ -2,7 +2,13 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import './App.css';
 
-// Components
+// Set base URL for API calls
+axios.defaults.baseURL = process.env.REACT_APP_API_URL || 'https://gigshield-backend-2y02.onrender.com';
+
+// Create axios instance with base URL
+const api = axios.create({
+  baseURL: process.env.REACT_APP_API_URL || 'https://gigshield-backend-2y02.onrender.com'
+});
 import WorkerOnboarding from './components/WorkerOnboarding';
 import ClaimSubmission from './components/ClaimSubmission';
 import AnalyticsDashboard from './components/AnalyticsDashboard';
@@ -26,7 +32,7 @@ function App() {
   const fetchAnalytics = async () => {
     try {
       setLoading(true);
-      const response = await axios.get('/api/analytics');
+      const response = await api.get('/api/analytics');
       setAnalytics(response.data);
     } catch (error) {
       console.error('Error fetching analytics:', error);
@@ -39,7 +45,7 @@ function App() {
   // Fetch workers
   const fetchWorkers = async () => {
     try {
-      const response = await axios.get('/api/workers');
+      const response = await api.get('/api/workers');
       setWorkers(response.data.workers);
     } catch (error) {
       console.error('Error fetching workers:', error);

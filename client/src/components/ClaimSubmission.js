@@ -1,6 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 
+// Set base URL for API calls
+axios.defaults.baseURL = process.env.REACT_APP_API_URL || 'https://gigshield-backend-2y02.onrender.com';
+
 const ParametricClaimResult = ({ claim }) => {
   const [animationPhase, setAnimationPhase] = useState('validating');
   const [showSuccess, setShowSuccess] = useState(false);

@@ -1,6 +1,9 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 
+// Set base URL for API calls
+axios.defaults.baseURL = process.env.REACT_APP_API_URL || 'https://gigshield-backend-2y02.onrender.com';
+
 const WorkerProfileCards = ({ workers, onWorkerUpdated }) => {
   const [editingWorker, setEditingWorker] = useState(null);
   const [editFormData, setEditFormData] = useState({});
